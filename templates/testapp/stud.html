@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/stud.css' %}">
+</head>
+<body>
+    <h1>Students Information</h1>
+    {% if s_list %}
+    <table border="2">
+        <thead>
+            <tr>
+                <th>ROLL_NO</th>
+                <th>NAME</th>
+                <th>DOB</th>
+                <th>MARKS</th>
+                <th>EMAIL</th>
+                <th>PHONE</th>
+                <th>ADDRESS</th>
+            </tr>
+        </thead>
+        {% for val in s_list %}
+        <tr>
+            <td>{{val.rollno}}</td>
+            <td>{{val.name}}</td>
+            <td>{{val.dob}}</td>
+            <td>{{val.marks}}</td>
+            <td>{{val.email}}</td>
+            <td>{{val.phnumber}}</td>
+            <td>{{val.address}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Records Found !!!</p>
+    {% endif %}
+</body>
+</html>
